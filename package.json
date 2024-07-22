@@ -1,0 +1,17 @@
+{
+  "name": "semana-js-expert-1",
+  "version": "1.0.0",
+  "description": "...",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "assets": "npx http-server --cors -c-1 -p 8081 assets/",
+    "dev": "npx http-server --cors -c-1 -p 8080 public/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
