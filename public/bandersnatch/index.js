@@ -8,13 +8,18 @@ async function main() {
   const host = isLocal ? manifestJSON.localhost : manifestJSON.production;
 
   const network = new Network({ host });
-  const videoPLayer = new VideoPlayer({ manifestJSON, network, videoElement: document.getElementById('vid') });
   const videoComponent = new VideoComponent();
+  const videoPLayer = new VideoPlayer({
+    manifestJSON,
+    network,
+    videoElement: document.getElementById('vid'),
+    videoComponent
+  });
 
-  setTimeout(() => {
-    videoPLayer.initializeCodec();
-    videoComponent.initializePlayer();
-  }, 5000);
+  videoPLayer.initializeCodec();
+  videoComponent.initializePlayer();
+
+  window.nextChunk = (data) => videoPLayer.nextChunk(data);
 }
 
 window.onload = main;
